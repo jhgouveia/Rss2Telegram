@@ -1,4 +1,4 @@
-name: Cron Action
+name: Notícias Interlegis (Interno)
 on:
   workflow_dispatch:
   schedule:
