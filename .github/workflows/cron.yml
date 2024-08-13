@@ -43,7 +43,8 @@ jobs:
           TELEGRAPH_TOKEN: ${{ vars.TELEGRAPH_TOKEN }}
           DRYRUN: ${{ steps.download.outcome }}
       - name: Upload history
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: rss2telegram
+          pattern: rss2telegram-*
           path: rss2telegram.db
+          merge-multiple: true
