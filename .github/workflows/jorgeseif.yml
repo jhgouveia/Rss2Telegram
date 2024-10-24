@@ -1,4 +1,4 @@
-name: Notícias Interlegis (Interno)
+name: Senador Jorge Seif
 on:
   workflow_dispatch:
   schedule:
