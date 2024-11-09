@@ -31,16 +31,16 @@ jobs:
       - name: Run Rss to Telegram
         run: python rss2telegram.py
         env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          DESTINATION: ${{ vars.DESTINATION }}
-          URL: ${{ vars.URL }}
-          EMOJIS: ${{ vars.EMOJIS }}
-          TOPIC: ${{ vars.TOPIC }}
-          HIDE_BUTTON: ${{ vars.HIDE_BUTTON }}
-          MESSAGE_TEMPLATE: ${{ vars.MESSAGE_TEMPLATE }}
-          BUTTON_TEXT: ${{ vars.BUTTON_TEXT }}
-          PARAMETERS: ${{ vars.PARAMETERS }}
-          TELEGRAPH_TOKEN: ${{ vars.TELEGRAPH_TOKEN }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN_GSJSEIF }}
+          DESTINATION: ${{ vars.DESTINATION_GSJSEIF }}
+          URL: ${{ vars.URL_GSJSEIF }}
+          EMOJIS: ${{ vars.EMOJIS_GSJSEIF }}
+          TOPIC: ${{ vars.TOPIC_GSJSEIF }}
+          HIDE_BUTTON: ${{ vars.HIDE_BUTTON_GSJSEIF }}
+          MESSAGE_TEMPLATE: ${{ vars.MESSAGE_TEMPLATE_GSJSEIF }}
+          BUTTON_TEXT: ${{ vars.BUTTON_TEXT_GSJSEIF }}
+          PARAMETERS: ${{ vars.PARAMETERS_GSJSEIF }}
+          TELEGRAPH_TOKEN: ${{ vars.TELEGRAPH_TOKEN_GSJSEIF }}
           DRYRUN: ${{ steps.download.outcome }}
       - name: Upload history
         uses: actions/upload-artifact@v4
