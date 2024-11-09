@@ -21,7 +21,7 @@ jobs:
           workflow_conclusion: success
       - name: Move database
         continue-on-error: true
-        run: mv /rss2telegram.db rss2telegram.db
+        run: mv Rss2Telegram/rss2telegram.db rss2telegram.db
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
