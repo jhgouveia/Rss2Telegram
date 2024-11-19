@@ -45,6 +45,5 @@ jobs:
       - name: Upload history
         uses: actions/upload-artifact@v4
         with:
-          pattern: rss2telegram
+          name: rss2telegram
           path: rss2telegram.db
-          merge-multiple: true
