@@ -1,0 +1,49 @@
+name: Deputada Carla Zambelli
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */1 * * *'
+
+
+jobs:
+  rss2telegram:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Download artifact
+        id: download
+        continue-on-error: true
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: cron.yml
+          workflow_conclusion: success
+      - name: Move database
+        continue-on-error: true
+        run: mv rss2telegram/rss2telegram.db rss2telegram.db
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+      - name: Run Rss to Telegram
+        run: python rss2telegram.py
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN_CARLAZAMBELLI }}
+          DESTINATION: ${{ vars.DESTINATION_CARLAZAMBELLI }}
+          URL: ${{ vars.URL_CARLAZAMBELLI }}
+          EMOJIS: ${{ vars.EMOJIS_CARLAZAMBELLI }}
+          TOPIC: ${{ vars.TOPIC_CARLAZAMBELLI }}
+          HIDE_BUTTON: ${{ vars.HIDE_BUTTON_CARLAZAMBELLI }}
+          MESSAGE_TEMPLATE: ${{ vars.MESSAGE_TEMPLATE_CARLAZAMBELLI }}
+          BUTTON_TEXT: ${{ vars.BUTTON_TEXT_CARLAZAMBELLI }}
+          PARAMETERS: ${{ vars.PARAMETERS_CARLAZAMBELLI }}
+          TELEGRAPH_TOKEN: ${{ vars.TELEGRAPH_TOKEN_CARLAZAMBELLI }}
+          DRYRUN: ${{ steps.download.outcome }}
+      - name: Upload history
+        uses: actions/upload-artifact@v4
+        with:
+          name: rss2telegram
+          path: rss2telegram.db
