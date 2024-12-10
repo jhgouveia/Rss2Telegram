@@ -31,7 +31,7 @@ jobs:
       - name: Run Rss to Telegram
         run: python rss2telegram.py
         env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN_CARLAZAMBELLI }}
+          BOT_TOKEN: ${{ secrets.RSS2TELEGRAM_JHG_BOT_TOKEN }}
           DESTINATION: ${{ vars.DESTINATION_CARLAZAMBELLI }}
           URL: ${{ vars.URL_CARLAZAMBELLI }}
           EMOJIS: ${{ vars.EMOJIS_CARLAZAMBELLI }}
