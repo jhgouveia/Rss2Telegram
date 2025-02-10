@@ -17,7 +17,7 @@ jobs:
         continue-on-error: true
         uses: dawidd6/action-download-artifact@v6
         with:
-          workflow: cron.yml
+          workflow: jorgeseif.yml
           workflow_conclusion: success
       - name: Move database
         continue-on-error: true
