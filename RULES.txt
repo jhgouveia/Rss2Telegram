@@ -1,2 +1,2 @@
-DROP:https\:\/\/x.com\/jorgeseifjunior"
-DROP:https\:\/\/www.instagram.com\/jorgeseifjunior\/"
+DROP:https\:\/\/x.com\/jorgeseifjunior
+DROP:https\:\/\/www.instagram.com\/jorgeseifjunior\/
