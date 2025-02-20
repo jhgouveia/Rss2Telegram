@@ -33,7 +33,7 @@ jobs:
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN_NOTICIAS_INTERLEGIS_INTERNO }}
           DESTINATION: ${{ vars.DESTINATION_NOTICIAS_INTERLEGIS_INTERNO }}
-          URL: ${{ vars.URL_TOKEN_NOTICIAS_INTERLEGIS_INTERNO }}
+          URL: ${{ vars.URL_NOTICIAS_INTERLEGIS_INTERNO }}
           EMOJIS: ${{ vars.EMOJIS }}
           TOPIC: ${{ vars.TOPIC }}
           HIDE_BUTTON: ${{ vars.HIDE_BUTTON }}
