@@ -1,0 +1,49 @@
+name: Deputada Daniela Reinehr
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */1 * * *'
+
+
+jobs:
+  rss2telegram:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Download artifact
+        id: download
+        continue-on-error: true
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          workflow: daniela_reinehr.yml
+          workflow_conclusion: success
+      - name: Move database
+        continue-on-error: true
+        run: mv rss2telegram/rss2telegram.db rss2telegram.db
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+      - name: Run Rss to Telegram
+        run: python rss2telegram.py
+        env:
+          BOT_TOKEN: ${{ secrets.RSS2TELEGRAM_JHG_BOT_TOKEN }}
+          DESTINATION: ${{ vars.DESTINATION_DANIELA_REINEHR }}
+          URL: ${{ vars.URL_DANIELA_REINEHR }}
+          EMOJIS: ${{ vars.EMOJIS_DANIELA_REINEHR }}
+          TOPIC: ${{ vars.TOPIC_DANIELA_REINEHR }}
+          HIDE_BUTTON: ${{ vars.HIDE_BUTTON_DANIELA_REINEHR }}
+          MESSAGE_TEMPLATE: ${{ vars.MESSAGE_TEMPLATE_DANIELA_REINEHR }}
+          BUTTON_TEXT: ${{ vars.BUTTON_TEXT_DANIELA_REINEHR }}
+          PARAMETERS: ${{ vars.PARAMETERS_DANIELA_REINEHR }}
+          TELEGRAPH_TOKEN: ${{ vars.TELEGRAPH_TOKEN_DANIELA_REINEHR }}
+          DRYRUN: ${{ steps.download.outcome }}
+      - name: Upload history
+        uses: actions/upload-artifact@v4
+        with:
+          name: rss2telegram
+          path: rss2telegram.db
