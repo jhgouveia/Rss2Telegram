@@ -31,7 +31,7 @@ jobs:
       - name: Run Rss to Telegram
         run: python rss2telegram.py
         env:
-          BOT_TOKEN: ${{ secrets.RSS2TELEGRAM_JHG_BOT_TOKEN }}
+          BOT_TOKEN: ${{ secrets.JHGouveia_bot_Token }}
           DESTINATION: ${{ vars.DESTINATION_LIVRE_MERCADO }}
           URL: ${{ vars.URL_LIVRE_MERCADO }}
           EMOJIS: ${{ vars.EMOJIS_LIVRE_MERCADO }}
