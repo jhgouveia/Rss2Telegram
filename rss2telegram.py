@@ -151,7 +151,7 @@ def set_text_vars(text, topic):
         'SITE_NAME': topic['site_name'],
         'TITLE': topic['title'],
         'SUMMARY': re.sub('<[^<]+?>', '', topic['summary']),
-        'LINK': define_link(topic['url'], PARAMETERS),
+        'LINK': define_link(topic['link'], PARAMETERS),
         'EMOJI': random.choice(EMOJIS.split(","))
     }
     for word in re.split('{|}', text):
