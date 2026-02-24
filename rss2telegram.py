@@ -178,17 +178,17 @@ def check_topics(url):
 
         # Adicionado para limpar a URL vinda do Google Alerts
         feedUrl = tpc.links[0].href.split('&')[2].replace('url=', '')
-        # Alterado para utilizar a variável feedURL, acima
-        if check_history(feedURL):
+        # Alterado para utilizar a variável feedUrl, acima
+        if check_history(feedUrl):
             continue
-        add_to_history(feedURL)
+        add_to_history(feedUrl)
         topic = {}
         topic['site_name'] = feed['feed']['title']
         topic['title'] = tpc.title.strip()
         topic['summary'] = tpc.summary
 #        topic['link'] = tpc.links[0].href
-        # Alterado para utilizar a variável feedURL
-        topic['link'] = feedURL
+        # Alterado para utilizar a variável feedUrl
+        topic['link'] = feedUrl
         topic['photo'] = get_img(tpc.links[0].href)
         BUTTON_TEXT = os.environ.get('BUTTON_TEXT', False)
         if BUTTON_TEXT:
