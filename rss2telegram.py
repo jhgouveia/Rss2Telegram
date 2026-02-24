@@ -189,7 +189,8 @@ def check_topics(url):
 #        topic['link'] = tpc.links[0].href
         # Alterado para utilizar a variável feedUrl
         topic['link'] = feedUrl
-        topic['photo'] = get_img(tpc.links[0].href)
+        # Alterado para utilizar a variável feedUrl
+        topic['photo'] = get_img(feedUrl)
         BUTTON_TEXT = os.environ.get('BUTTON_TEXT', False)
         if BUTTON_TEXT:
             BUTTON_TEXT = set_text_vars(BUTTON_TEXT, topic)
